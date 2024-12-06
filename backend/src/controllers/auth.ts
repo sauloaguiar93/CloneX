@@ -10,7 +10,6 @@ import { error } from "console";
 export const signup: RequestHandler = async (req, res) => {
     // Validando dados
     const safeData = signupSchema.safeParse(req.body);
-    
     if(!safeData.success) {
         return res.json({ error: safeData.error.flatten().fieldErrors });
     }
